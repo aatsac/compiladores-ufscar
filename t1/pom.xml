@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Identificação do projeto -->
+    <groupId>br.ufscar.dc.compiladores</groupId>
+    <artifactId>compilador-la</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>Compilador LA - Analisador Léxico (T1)</name>
+    <description>
+        Analisador léxico da Linguagem Algorítmica (LA), desenvolvido para a
+        disciplina de Construção de Compiladores - DC/UFSCar.
+    </description>
+
+    <properties>
+        <!-- Versão mínima do Java: 11 (LTS amplamente disponível) -->
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <build>
+        <plugins>
+            <!--
+                Plugin maven-jar-plugin:
+                Configura a geração do JAR executável, definindo a classe principal
+                e empacotando todas as dependências dentro do JAR (fat jar).
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <!-- Classe com o método main() -->
+                            <mainClass>br.ufscar.dc.compiladores.lexico.Principal</mainClass>
+                        </manifest>
+                    </archive>
+                    <!-- Nome do JAR gerado -->
+                    <finalName>compilador-la</finalName>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
