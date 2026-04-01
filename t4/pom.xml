@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>br.ufscar.dc.compiladores</groupId>
+    <artifactId>compilador-la</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>Compilador LA - Analisador Semântico (T4)</name>
+    <description>
+        Analisador sintático da Linguagem Algorítmica (LA), desenvolvido para a
+        disciplina de Construção de Compiladores - DC/UFSCar.
+        Utiliza ANTLR4 para geração do parser a partir da gramática oficial.
+    </description>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- Versão do ANTLR4 utilizada -->
+        <antlr4.version>4.13.1</antlr4.version>
+    </properties>
+
+    <dependencies>
+        <!--
+            Dependência do runtime do ANTLR4.
+            Necessária para que as classes geradas (LALexer, LAParser, etc.)
+            funcionem em tempo de execução.
+        -->
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>antlr4-runtime</artifactId>
+            <version>${antlr4.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!--
+                Plugin ANTLR4 para Maven.
+                Lê os arquivos .g4 em src/main/antlr4 e gera os fontes Java
+                (Lexer, Parser, Listener, Visitor) automaticamente durante
+                o build, antes da compilação Java.
+            -->
+            <plugin>
+                <groupId>org.antlr</groupId>
+                <artifactId>antlr4-maven-plugin</artifactId>
+                <version>${antlr4.version}</version>
+                <configuration>
+                    <!-- Gera os fontes no mesmo pacote da gramática -->
+                    <sourceDirectory>src/main/antlr4</sourceDirectory>
+                    <outputDirectory>
+                        ${project.build.directory}/generated-sources/antlr4
+                    </outputDirectory>
+                    <!-- Gera visitor: necessário para o analisador semântico (T3) -->
+                    <visitor>true</visitor>
+                    <!-- Listener mantido para compatibilidade -->
+                    <listener>true</listener>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <!-- Executa a geração de código na fase generate-sources -->
+                            <goal>antlr4</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!--
+                Plugin maven-assembly-plugin.
+                Gera um JAR executável "fat jar" (com todas as dependências
+                incluídas), para facilitar a execução em linha de comando.
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.6.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <!-- Classe com o método main() -->
+                            <mainClass>
+                                br.ufscar.dc.compiladores.semantico.Principal
+                            </mainClass>
+                        </manifest>
+                    </archive>
+                    <!-- Usa o descritor padrão "jar-with-dependencies" -->
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <!-- Nome do JAR final -->
+                    <finalName>compilador-la</finalName>
+                    <!-- Não adiciona sufixo ao nome do arquivo final -->
+                    <appendAssemblyId>false</appendAssemblyId>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <!-- Executa na fase package do Maven -->
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
