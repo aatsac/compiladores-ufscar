@@ -58,7 +58,7 @@ java -jar target\compilador-la.jar C:\testes\entrada.txt C:\temp\saida.txt
 
 ### Programa válido
 
-Cada token reconhecido é impresso em uma linha no formato:
+Cada token reconhecido é impresso em uma linha:
 
 ```
 <'lexema','TIPO'>    ← tokens genéricos: IDENT, NUM_INT, NUM_REAL, CADEIA
@@ -90,11 +90,11 @@ fim_algoritmo
 
 ### Erros léxicos
 
-| Tipo de erro             | Formato da mensagem                      |
-|--------------------------|------------------------------------------|
-| Símbolo inválido         | `Linha N: X - simbolo nao identificado`  |
-| Comentário não fechado   | `Linha N: comentario nao fechado`        |
-| Cadeia não fechada       | `Linha N: cadeia literal nao fechada`    |
+| Tipo de erro           | Formato da mensagem                     |
+|------------------------|-----------------------------------------|
+| Símbolo inválido       | `Linha N: X - simbolo nao identificado` |
+| Comentário não fechado | `Linha N: comentario nao fechado`       |
+| Cadeia não fechada     | `Linha N: cadeia literal nao fechada`   |
 
 Ao encontrar um erro, os tokens reconhecidos até aquele ponto são impressos normalmente, seguidos da mensagem de erro. A execução é interrompida.
 
@@ -108,12 +108,12 @@ Ao encontrar um erro, os tokens reconhecidos até aquele ponto são impressos no
 
 ### Tokens genéricos
 
-| Token     | Descrição             | Exemplo         |
-|-----------|-----------------------|-----------------|
-| `IDENT`   | Identificador         | `nome`, `x1`    |
-| `NUM_INT` | Número inteiro        | `42`, `100`     |
-| `NUM_REAL` | Número real          | `3.14`, `0.5`   |
-| `CADEIA`  | String entre aspas    | `"olá mundo"`   |
+| Token      | Descrição           | Exemplo        |
+|------------|---------------------|----------------|
+| `IDENT`    | Identificador       | `nome`, `x1`   |
+| `NUM_INT`  | Número inteiro      | `42`, `100`    |
+| `NUM_REAL` | Número real         | `3.14`, `0.5`  |
+| `CADEIA`   | String entre aspas  | `"olá mundo"`  |
 
 ### Símbolos especiais
 

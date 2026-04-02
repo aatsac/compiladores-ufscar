@@ -1,10 +1,12 @@
-# T3 — Analisador Semântico
+# T4 — Analisador Semântico (Parte 2)
 
 ## Descrição
 
-Implementação do analisador semântico da **Linguagem Algorítmica (LA)**, desenvolvida pelo prof. Jander Moreira no DC/UFSCar.
+Extensão do analisador semântico da **Linguagem Algorítmica (LA)**, desenvolvida pelo prof. Jander Moreira no DC/UFSCar.
 
-O analisador percorre a árvore sintática gerada pelo ANTLR4 e detecta erros semânticos. Ao contrário das fases anteriores, **não interrompe ao primeiro erro** — continua verificando o programa inteiro e reporta todos os erros encontrados.
+Inclui todas as verificações do T3, acrescidas de verificações envolvendo ponteiros, registros, compatibilidade de argumentos em chamadas de subprogramas e uso indevido do comando `retorne`.
+
+Não interrompe ao primeiro erro — reporta todos os erros do programa antes de encerrar.
 
 ---
 
@@ -28,7 +30,7 @@ mvn -version
 
 ## Como compilar
 
-Dentro da pasta `t3/`:
+Dentro da pasta `t4/`:
 
 ```bash
 mvn package
@@ -80,7 +82,7 @@ Fim da compilacao
 
 ### Erros léxicos e sintáticos (herdados do T1 e T2)
 
-Erros léxicos e sintáticos continuam sendo detectados. Quando ocorrem, a execução é interrompida imediatamente:
+Quando ocorrem, a execução é interrompida imediatamente:
 
 | Tipo de erro           | Formato da mensagem                     |
 |------------------------|-----------------------------------------|
@@ -93,30 +95,56 @@ Erros léxicos e sintáticos continuam sendo detectados. Quando ocorrem, a execu
 
 ## Erros semânticos detectados
 
-| Tipo de erro | Formato da mensagem |
-|---|---|
+### Herdados do T3
+
+| Tipo de erro                         | Formato da mensagem                                    |
+|--------------------------------------|--------------------------------------------------------|
 | Identificador já declarado no escopo | `Linha N: identificador X ja declarado anteriormente` |
-| Tipo não declarado | `Linha N: tipo X nao declarado` |
-| Identificador não declarado | `Linha N: identificador X nao declarado` |
-| Atribuição incompatível com o tipo | `Linha N: atribuicao nao compativel para X` |
+| Tipo não declarado                   | `Linha N: tipo X nao declarado`                       |
+| Identificador não declarado          | `Linha N: identificador X nao declarado`              |
+| Atribuição incompatível              | `Linha N: atribuicao nao compativel para X`           |
 
-### Regras de compatibilidade de tipos para atribuição
+### Novos no T4
 
-| Lado esquerdo       | Lado direito aceito         |
-|---------------------|-----------------------------|
-| `inteiro`           | `inteiro` ou `real`         |
-| `real`              | `inteiro` ou `real`         |
-| `literal`           | `literal`                   |
-| `logico`            | `logico`                    |
-| registro (tipo X)   | registro (mesmo tipo X)     |
-| ponteiro (`^tipo`)  | endereço (`&ident`)         |
+| Tipo de erro                         | Formato da mensagem                                         |
+|--------------------------------------|-------------------------------------------------------------|
+| Argumentos incompatíveis em chamada  | `Linha N: incompatibilidade de parametros na chamada de X` |
+| `retorne` fora de função             | `Linha N: comando retorne nao permitido nesse escopo`      |
+
+---
+
+## Regras de compatibilidade
+
+### Atribuição
+
+| Lado esquerdo      | Lado direito aceito     |
+|--------------------|-------------------------|
+| `inteiro`          | `inteiro` ou `real`     |
+| `real`             | `inteiro` ou `real`     |
+| `literal`          | `literal`               |
+| `logico`           | `logico`                |
+| registro (tipo X)  | registro (mesmo tipo X) |
+| ponteiro (`^tipo`) | endereço (`&ident`)     |
+
+### Passagem de parâmetros (mais restrita que atribuição)
+
+| Parâmetro formal   | Argumento real aceito    |
+|--------------------|--------------------------|
+| `inteiro`          | `inteiro` (apenas)       |
+| `real`             | `real` (apenas)          |
+| `literal`          | `literal`                |
+| `logico`           | `logico`                 |
+| registro (tipo X)  | registro (mesmo tipo X)  |
+| ponteiro (`^tipo`) | endereço (`&ident`)      |
+
+> Para parâmetros, `inteiro` e `real` **não** são intercambiáveis.
 
 ---
 
 ## Estrutura do projeto
 
 ```
-t3/
+t4/
 ├── pom.xml
 ├── README.md
 └── src/
@@ -131,7 +159,7 @@ t3/
                 ├── LASyntaxErrorListener.java   # Tratamento de erros sintáticos
                 ├── LASemanticoVisitor.java       # Visitor de análise semântica
                 ├── TabelaDeSimbolos.java         # Tabela de símbolos com escopos
-                └── EntradaTabelaDeSimbolos.java  # Entrada da tabela (nome, tipo, categoria)
+                └── EntradaTabelaDeSimbolos.java  # Entrada da tabela (nome, tipo, categoria, parâmetros)
 ```
 
 > As classes `LALexer.java` e `LAParser.java` são **geradas automaticamente** pelo ANTLR4 durante o build e não estão no repositório.
