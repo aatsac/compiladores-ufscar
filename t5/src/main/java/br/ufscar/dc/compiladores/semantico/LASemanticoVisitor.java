@@ -1,6 +1,5 @@
 package br.ufscar.dc.compiladores.semantico;
 
-import br.ufscar.dc.compiladores.semantico.LAParser.*;
 import org.antlr.v4.runtime.Token;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -68,19 +67,6 @@ public class LASemanticoVisitor extends LABaseVisitor<String> {
         temErro = true;
         writer.println("Linha " + token.getLine()
                 + ": identificador " + nome + " nao declarado");
-    }
-
-    private void erroAtribuicaoIncompativel(Token token) {
-        temErro = true;
-        writer.println("Linha " + token.getLine()
-                + ": atribuicao nao compativel para " + token.getText());
-    }
-
-    // Atribuição para identificador composto (ex: ponto1.x, valor[0])
-    private void erroAtribuicaoIncompativelNome(Token token, String nome) {
-        temErro = true;
-        writer.println("Linha " + token.getLine()
-                + ": atribuicao nao compativel para " + nome);
     }
 
     private void erroIncompatibilidadeParametros(Token token) {

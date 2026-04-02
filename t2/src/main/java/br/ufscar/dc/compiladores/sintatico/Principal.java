@@ -1,7 +1,6 @@
 package br.ufscar.dc.compiladores.sintatico;
 
 import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.tree.*;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
