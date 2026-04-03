@@ -3,7 +3,7 @@
 # Script de teste automático do compilador MusicaLA (T6)
 # =============================================================
 
-COMPILADOR="../compilador-musical/target/compilador-musical-1.0-SNAPSHOT-jar-with-dependencies.jar"
+COMPILADOR="../compilador-musical/target/compilador-musica.jar"
 ENTRADA="entrada"
 ESPERADA="saida_esperada"
 TMP="/tmp/musica_test"
