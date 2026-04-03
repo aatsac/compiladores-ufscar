@@ -20,8 +20,7 @@ target/
 # =========================
 # Saídas das melodias
 # =========================
-t6/melodias/saida/*.c
-t6/melodias/saida/*.out
+t6/melodias/saida/*
 
 # =========================
 # Arquivos temporários Linux
