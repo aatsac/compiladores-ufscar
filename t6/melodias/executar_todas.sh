@@ -34,9 +34,7 @@ for arquivo in "$PASTA_ENTRADA"/*.musica; do
         continue
     fi
 
-    # executa
-    echo "▶ Tocando..."
-    "$executavel"
+
 
     echo "✅ Fim de $nome"
     echo

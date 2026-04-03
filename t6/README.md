@@ -2,27 +2,19 @@
 
 ## Descrição
 
-**MusicaLA** é uma linguagem declarativa para descrever melodias musicais em português. O compilador lê um arquivo `.musica`, valida léxico, sintaxe e semântica, e gera código C que toca as notas via síntese senoidal com `sox` (`play`).
+**MusicaLA** é uma DSL (Domain Specific Language) declarativa para descrever melodias musicais em português. O compilador valida léxico, sintaxe e semântica, e gera código C que toca as notas via síntese senoidal com `sox`.
 
 **Exemplo de programa:**
-```text
+```
 musica "Ode a Alegria"
   bpm 120
   instrumento piano
 
   nota MI4 quarto
-  nota MI4 quarto
   nota FA4 quarto
-  nota SOL4 quarto
-  nota MI4 meio
+  nota SOL4 meio
 fim_musica
 ```
-
----
-
-## Membros do grupo
-
-> Preencha aqui os nomes e RAs dos integrantes do grupo.
 
 ---
 
@@ -30,26 +22,37 @@ fim_musica
 
 | Ferramenta   | Versão mínima | Download |
 |--------------|---------------|----------|
-| Java JDK     | 11            | https://adoptium.net |
+| Java JDK     | 21            | https://adoptium.net |
 | Apache Maven | 3.6           | https://maven.apache.org/download.cgi |
 | GCC          | qualquer      | Nativo no Linux/macOS; Windows: https://www.mingw-w64.org |
 | sox          | qualquer      | Linux: `sudo apt install sox` |
 
 > O ANTLR4 é baixado automaticamente pelo Maven.
 
+Verifique as versões instaladas:
+
+```bash
+java -version
+mvn -version
+gcc --version
+sox --version
+```
+
 ---
 
 ## Como compilar o compilador
+
+Dentro da pasta `t6/compilador-musical/`:
 
 ```bash
 cd t6/compilador-musical
 mvn package
 ```
 
-Isso gera:
+Gera o JAR em:
 
-```text
-compilador-musical/target/compilador-musica.jar
+```
+t6/compilador-musical/target/compilador-musica.jar
 ```
 
 ---
@@ -61,163 +64,21 @@ compilador-musical/target/compilador-musica.jar
 **Passo 2:** Compile para código C:
 
 ```bash
-cd t6/compilador-musical
-java -jar target/compilador-musica.jar ../melodias/entrada/minha_musica.musica ../melodias/saida/saida.c
+java -jar t6/compilador-musical/target/compilador-musica.jar entrada.musica saida.c
 ```
 
 **Passo 3:** Compile e execute o código C gerado:
 
 ```bash
-gcc ../melodias/saida/saida.c -o musica
+gcc saida.c -o musica
 ./musica
 ```
 
-> No Linux, o programa usa `sox` (comando `play`) para sintetizar as notas via onda senoidal.
-
 ---
 
-## Sintaxe da linguagem
+## Rodando os testes automáticos (casos de teste)
 
-### Estrutura geral
-
-```text
-musica "Título da Música"
-  [bpm NUMERO]
-  [instrumento NOME]
-  [repeticoes NUMERO]
-
-  (notas, pausas e sequências)
-
-fim_musica
-```
-
-Múltiplos blocos `musica ... fim_musica` podem existir no mesmo arquivo e são tocados em sequência.
-
-### Notas
-
-```text
-nota NOME_NOTA DURACAO
-```
-
-**Notas disponíveis:** `DO`, `RE`, `MI`, `FA`, `SOL`, `LA`, `SI`  
-**Acidentes:** `#` (sustenido) ou `b` (bemol) — ex: `DO#`, `SIb`  
-**Oitavas:** `1` a `8` — ex: `DO4`, `LA#5`, `MIb3`
-
-### Durações
-
-| Duração    | Valor        | Descrição |
-|------------|--------------|-----------|
-| `inteiro`  | 4 × quarto   | Nota inteira |
-| `meio`     | 2 × quarto   | Meia nota |
-| `quarto`   | 1 × quarto   | Semínima |
-| `colcheia` | 1/2 × quarto | Colcheia |
-| `semi`     | 1/4 × quarto | Semicolcheia |
-
-### Pausa
-
-```text
-pausa DURACAO
-```
-
-### Sequência nomeada
-
-```text
-sequencia "nome da frase"
-  nota DO4 quarto
-  nota RE4 quarto
-fim_sequencia
-```
-
-### Configurações
-
-| Configuração | Descrição | Padrão |
-|---|---|---|
-| `bpm NUMERO` | Andamento em batidas por minuto (20–300) | 120 |
-| `instrumento NOME` | Nome do instrumento (informativo) | — |
-| `repeticoes NUMERO` | Quantas vezes repetir o bloco (>= 1) | 1 |
-
-### Comentários
-
-```text
-// Este é um comentário de linha
-```
-
----
-
-## Exemplos completos
-
-### 1. Parabéns
-
-```text
-musica "Parabens"
-  bpm 100
-  instrumento piano
-
-  nota SOL4 colcheia
-  nota SOL4 semi
-  nota LA4 quarto
-  nota SOL4 quarto
-  nota DO5 quarto
-  nota SI4 meio
-  pausa quarto
-fim_musica
-```
-
-### 2. Dormir com repetições
-
-```text
-musica "Brilha Brilha Estrelinha"
-  bpm 110
-  repeticoes 2
-
-  sequencia "verso"
-    nota DO4 quarto
-    nota DO4 quarto
-    nota SOL4 quarto
-    nota SOL4 quarto
-    nota LA4 quarto
-    nota LA4 quarto
-    nota SOL4 meio
-  fim_sequencia
-
-fim_musica
-```
-
-### 3. Escala cromática
-
-```text
-musica "Escala"
-  bpm 140
-
-  nota DO4 colcheia
-  nota DO#4 colcheia
-  nota RE4 colcheia
-  nota RE#4 colcheia
-  nota MI4 colcheia
-  nota FA4 colcheia
-  nota FA#4 colcheia
-  nota SOL4 colcheia
-fim_musica
-```
-
----
-
-## Verificações semânticas
-
-O compilador detecta 4 tipos de erros semânticos:
-
-| Erro | Mensagem |
-|---|---|
-| BPM fora do intervalo (20–300) | `Linha N: bpm X fora do intervalo valido (20-300)` |
-| Repetições inválidas (< 1) | `Linha N: repeticoes X invalido (deve ser >= 1)` |
-| Configuração duplicada | `Linha N: configuracao X ja declarada nesta musica` |
-| Música sem notas ou pausas | `Linha N: musica "X" nao contem notas ou pausas` |
-
-Erros semânticos **não interrompem** a análise — todos são reportados antes do `Fim da compilacao`.
-
----
-
-## Rodando os testes automaticamente
+Verifica erros léxicos, sintáticos e semânticos:
 
 ```bash
 cd t6/casos-teste-t6
@@ -225,18 +86,15 @@ chmod +x testar.sh
 ./testar.sh
 ```
 
-O script:
-
-- entra em `../compilador-musical`
-- executa `mvn package`
-- usa o JAR gerado
-- testa todos os arquivos em `entrada/`
-- compara com `saida_esperada/`
-- verifica se os válidos geram C compilável
+O script compila automaticamente o JAR via `mvn package` em `../compilador-musical`, testa todos os arquivos em `entrada/`, compara com `saida_esperada/` e verifica se os casos válidos geram C compilável.
 
 ---
 
-## Executando todas as melodias
+## Executando as melodias de exemplo
+
+### Tocar todas as melodias
+
+Compila, linka e executa cada melodia em sequência:
 
 ```bash
 cd t6/melodias
@@ -244,40 +102,150 @@ chmod +x executar_todas.sh
 ./executar_todas.sh
 ```
 
-Esse script:
+Lê todos os `.musica` de `entrada/`, gera os `.c` em `saida/`, compila com GCC e toca cada música com `sox`.
 
-- lê todos os `.musica` em `entrada/`
-- gera os `.c` em `saida/`
-- compila com `gcc`
-- executa automaticamente para tocar as músicas
+### Verificar geração de código das melodias
+
+Compara o código C gerado com o código C esperado armazenado em `saida_esperada/`:
+
+```bash
+cd t6/melodias
+chmod +x testar_melodias.sh
+./testar_melodias.sh
+```
+
+Para cada melodia em `entrada/`, o script gera o `.c` em `saida/` e compara com o arquivo correspondente em `saida_esperada/`, reportando diferenças caso existam.
+
+---
+
+## Melodias de exemplo disponíveis
+
+| Arquivo | Melodia | BPM |
+|---------|---------|-----|
+| `parabens.musica` | Parabéns pra Você | 100 |
+| `brilha_estrelinha.musica` | Brilha Brilha Estrelinha | 110 |
+| `ode_alegria.musica` | Ode à Alegria — Beethoven | 120 |
+| `fur_elise.musica` | Für Elise — Beethoven | 140 |
+| `jingle_bells.musica` | Jingle Bells | 160 |
+| `tetris.musica` | Tetris (Korobeiniki) | 160 |
+| `piratas_caribe.musica` | Piratas do Caribe | 160 |
+| `super_mario.musica` | Super Mario Bros | 200 |
+| `marcha_imperial.musica` | Marcha Imperial — Star Wars | 100 |
+
+---
+
+## Sintaxe da linguagem
+
+### Estrutura geral
+
+```
+musica "Título"
+  [bpm NUMERO]
+  [instrumento NOME]
+  [repeticoes NUMERO]
+  (notas, pausas e sequências)
+fim_musica
+```
+
+Múltiplos blocos podem existir no mesmo arquivo e são tocados em sequência.
+
+### Notas e pausas
+
+```
+nota NOME_NOTA DURACAO
+pausa DURACAO
+```
+
+**Notas:** `DO`, `RE`, `MI`, `FA`, `SOL`, `LA`, `SI`  
+**Acidentes:** `#` (sustenido) ou `b` (bemol) — ex: `DO#4`, `SIb3`  
+**Oitavas:** `1` a `8`
+
+### Durações
+
+| Duração    | Valor        |
+|------------|--------------|
+| `inteiro`  | 4 × quarto   |
+| `meio`     | 2 × quarto   |
+| `quarto`   | 1 × quarto   |
+| `colcheia` | 1/2 × quarto |
+| `semi`     | 1/4 × quarto |
+
+### Sequência nomeada
+
+```
+sequencia "nome"
+  nota DO4 quarto
+fim_sequencia
+```
+
+### Configurações
+
+| Configuração        | Intervalo válido | Padrão |
+|---------------------|------------------|--------|
+| `bpm NUMERO`        | 20–300           | 120    |
+| `instrumento NOME`  | qualquer ident   | —      |
+| `repeticoes NUMERO` | >= 1             | 1      |
+
+### Comentários
+
+```
+// comentário de linha
+```
+
+---
+
+## Verificações semânticas
+
+| Erro | Mensagem |
+|------|----------|
+| BPM fora do intervalo | `Linha N: bpm X fora do intervalo valido (20-300)` |
+| Repetições inválidas  | `Linha N: repeticoes X invalido (deve ser >= 1)` |
+| Configuração duplicada | `Linha N: configuracao X ja declarada nesta musica` |
+| Música sem notas      | `Linha N: musica "X" nao contem notas ou pausas` |
+
+Erros semânticos não interrompem a análise — todos são reportados antes do `Fim da compilacao`.
 
 ---
 
 ## Estrutura do projeto
 
-```text
-t6/
-├── readme.md
-├── compilador-musical/
-│   ├── pom.xml
-│   ├── src/
-│   └── target/
-├── casos-teste-t6/
-│   ├── entrada/
-│   ├── saida_esperada/
-│   └── testar.sh
-└── melodias/
-    ├── entrada/
-    ├── saida/
-    └── executar_todas.sh
 ```
+t6/
+├── README.md
+├── compilador-musical/          # Código-fonte do compilador
+│   ├── pom.xml
+│   └── src/
+│       └── main/
+│           ├── antlr4/
+│           │   └── br/ufscar/dc/compiladores/musica/
+│           │       └── Musica.g4              # Gramática da linguagem MusicaLA
+│           └── java/
+│               └── br/ufscar/dc/compiladores/musica/
+│                   ├── Principal.java                  # Ponto de entrada
+│                   ├── MusicaLexicalErrorListener.java # Erros léxicos
+│                   ├── MusicaSyntaxErrorListener.java  # Erros sintáticos
+│                   ├── MusicaSemanticoVisitor.java      # Análise semântica
+│                   └── MusicaGeradorVisitor.java        # Geração de código C
+├── casos-teste-t6/              # Testes automáticos do compilador
+│   ├── entrada/                 # Arquivos .musica de entrada
+│   ├── saida_esperada/          # Saídas esperadas dos casos de erro
+│   └── testar.sh                # Script de teste automático
+└── melodias/                    # Melodias de exemplo
+    ├── entrada/                 # Arquivos .musica das melodias
+    ├── saida/                   # Código C e executáveis gerados
+    ├── saida_esperada/          # Código C esperado para comparação
+    ├── executar_todas.sh        # Compila e toca todas as melodias
+    └── testar_melodias.sh       # Verifica geração de código das melodias
+```
+
+> `MusicaLexer.java`, `MusicaParser.java` e `MusicaBaseVisitor.java` são **gerados automaticamente** pelo ANTLR4 durante o build.
 
 ---
 
 ## Tecnologias utilizadas
 
-- **Java 11+**
-- **ANTLR4**
-- **Maven**
+- **Java 21**
+- **ANTLR 4.13.1**
+- **Maven 3.6+**
 - **GCC**
-- **sox (`play`)**
+- **sox** — síntese e reprodução de áudio via onda senoidal (`play -n synth`)
