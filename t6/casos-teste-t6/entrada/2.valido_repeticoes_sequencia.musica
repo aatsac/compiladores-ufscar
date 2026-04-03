@@ -1,0 +1,21 @@
+// Caso de teste 2: programa válido — Frère Jacques com repetições e sequência
+
+musica "Frere Jacques"
+  bpm 100
+  instrumento flauta
+  repeticoes 2
+
+  sequencia "frase1"
+    nota DO4 quarto
+    nota RE4 quarto
+    nota MI4 quarto
+    nota DO4 quarto
+  fim_sequencia
+
+  sequencia "frase2"
+    nota MI4 quarto
+    nota FA4 quarto
+    nota SOL4 meio
+  fim_sequencia
+
+fim_musica

@@ -1,0 +1,2 @@
+Linha 3: musica "Musica Vazia" nao contem notas ou pausas
+Fim da compilacao

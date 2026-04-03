@@ -1,0 +1,12 @@
+// Caso de teste 4: erro semântico — BPM fora do intervalo (0 e 500)
+
+musica "BPM Invalido"
+  bpm 0
+  instrumento piano
+  nota DO4 quarto
+fim_musica
+
+musica "BPM Muito Alto"
+  bpm 500
+  nota LA4 quarto
+fim_musica

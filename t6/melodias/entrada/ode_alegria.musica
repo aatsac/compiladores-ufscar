@@ -1,0 +1,83 @@
+// Ode à Alegria — Beethoven, 9ª Sinfonia
+// Tonalidade: Ré maior (adaptada para Dó maior)
+// Melodia principal completa (tema A + repetição)
+
+musica "Ode a Alegria"
+  bpm 120
+  instrumento orquestra
+
+  // Tema A — primeira exposição
+  nota MI4 quarto
+  nota MI4 quarto
+  nota FA4 quarto
+  nota SOL4 quarto
+  nota SOL4 quarto
+  nota FA4 quarto
+  nota MI4 quarto
+  nota RE4 quarto
+
+  nota DO4 quarto
+  nota DO4 quarto
+  nota RE4 quarto
+  nota MI4 quarto
+  nota MI4 meio
+  nota RE4 semi
+  nota RE4 meio
+
+  // Tema A — segunda exposição
+  nota MI4 quarto
+  nota MI4 quarto
+  nota FA4 quarto
+  nota SOL4 quarto
+  nota SOL4 quarto
+  nota FA4 quarto
+  nota MI4 quarto
+  nota RE4 quarto
+
+  nota DO4 quarto
+  nota DO4 quarto
+  nota RE4 quarto
+  nota MI4 quarto
+  nota RE4 meio
+  nota DO4 semi
+  nota DO4 inteiro
+
+  // Tema B
+  nota RE4 quarto
+  nota RE4 quarto
+  nota MI4 quarto
+  nota DO4 quarto
+  nota RE4 quarto
+  nota MI4 semi
+  nota FA4 semi
+  nota MI4 quarto
+  nota DO4 quarto
+
+  nota RE4 quarto
+  nota MI4 semi
+  nota FA4 semi
+  nota MI4 quarto
+  nota RE4 quarto
+  nota DO4 quarto
+  nota RE4 meio
+  pausa quarto
+
+  // Tema A — retorno final
+  nota MI4 quarto
+  nota MI4 quarto
+  nota FA4 quarto
+  nota SOL4 quarto
+  nota SOL4 quarto
+  nota FA4 quarto
+  nota MI4 quarto
+  nota RE4 quarto
+
+  nota DO4 quarto
+  nota DO4 quarto
+  nota RE4 quarto
+  nota MI4 quarto
+  nota RE4 meio
+  nota DO4 semi
+  nota DO4 inteiro
+
+fim_musica

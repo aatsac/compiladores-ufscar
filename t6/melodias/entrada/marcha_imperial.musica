@@ -1,0 +1,88 @@
+// Marcha Imperial — John Williams (Star Wars)
+// Tonalidade: Lá menor (adaptada)
+// Uma das melodias mais reconhecíveis do cinema
+
+musica "Marcha Imperial"
+  bpm 100
+  instrumento orquestra
+
+  // Tema principal — primeira exposição
+  nota LA3 quarto
+  nota LA3 quarto
+  nota LA3 quarto
+  nota FA3 colcheia
+  nota DO4 semi
+
+  nota LA3 quarto
+  nota FA3 colcheia
+  nota DO4 semi
+  nota LA3 meio
+
+  nota MI4 quarto
+  nota MI4 quarto
+  nota MI4 quarto
+  nota FA4 colcheia
+  nota DO4 semi
+
+  nota LA3 quarto
+  nota FA3 colcheia
+  nota DO4 semi
+  nota LA3 meio
+
+  // Tema B
+  nota LA4 quarto
+  nota LA3 colcheia
+  nota LA3 semi
+  nota LA4 quarto
+  nota SOL#4 colcheia
+  nota SOL4 semi
+
+  nota FA#4 semi
+  nota FA4 semi
+  nota FA#4 colcheia
+  pausa colcheia
+  nota LA#3 colcheia
+  nota RE4 quarto
+  nota DO#4 colcheia
+  nota DO4 semi
+
+  nota SI3 semi
+  nota SI3 semi
+  nota DO4 colcheia
+  pausa colcheia
+  nota FA3 colcheia
+  nota SOL#3 quarto
+  nota FA3 colcheia
+  nota LA3 semi
+
+  nota DO4 quarto
+  nota LA3 colcheia
+  nota DO4 semi
+  nota MI4 meio
+
+  // Tema principal — retorno
+  nota LA4 quarto
+  nota LA3 colcheia
+  nota LA3 semi
+  nota LA4 quarto
+  nota SOL#4 colcheia
+  nota SOL4 semi
+
+  nota FA#4 semi
+  nota FA4 semi
+  nota FA#4 colcheia
+  pausa colcheia
+  nota LA#3 colcheia
+  nota RE4 quarto
+  nota DO#4 colcheia
+  nota DO4 semi
+
+  nota SI3 semi
+  nota DO4 colcheia
+  nota FA3 colcheia
+  nota LA3 quarto
+  nota FA3 colcheia
+  nota DO4 semi
+  nota LA3 inteiro
+
+fim_musica

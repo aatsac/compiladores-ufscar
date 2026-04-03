@@ -1,0 +1,61 @@
+// Brilha Brilha Estrelinha (Twinkle Twinkle Little Star)
+// Tonalidade: Dó maior — melodia completa com as 3 partes
+
+musica "Brilha Brilha Estrelinha"
+  bpm 110
+  instrumento piano
+
+  // "Brilha brilha estrelinha"
+  nota DO4 quarto
+  nota DO4 quarto
+  nota SOL4 quarto
+  nota SOL4 quarto
+  nota LA4 quarto
+  nota LA4 quarto
+  nota SOL4 meio
+
+  // "Lá no céu pequenininha"
+  nota FA4 quarto
+  nota FA4 quarto
+  nota MI4 quarto
+  nota MI4 quarto
+  nota RE4 quarto
+  nota RE4 quarto
+  nota DO4 meio
+
+  // "No escuro da noite fria"
+  nota SOL4 quarto
+  nota SOL4 quarto
+  nota FA4 quarto
+  nota FA4 quarto
+  nota MI4 quarto
+  nota MI4 quarto
+  nota RE4 meio
+
+  // "Tua luz nos alegria"
+  nota SOL4 quarto
+  nota SOL4 quarto
+  nota FA4 quarto
+  nota FA4 quarto
+  nota MI4 quarto
+  nota MI4 quarto
+  nota RE4 meio
+
+  // Repete início
+  nota DO4 quarto
+  nota DO4 quarto
+  nota SOL4 quarto
+  nota SOL4 quarto
+  nota LA4 quarto
+  nota LA4 quarto
+  nota SOL4 meio
+
+  nota FA4 quarto
+  nota FA4 quarto
+  nota MI4 quarto
+  nota MI4 quarto
+  nota RE4 quarto
+  nota RE4 quarto
+  nota DO4 inteiro
+
+fim_musica

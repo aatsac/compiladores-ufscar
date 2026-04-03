@@ -1,0 +1,2 @@
+Linha 5: repeticoes 0 invalido (deve ser >= 1)
+Fim da compilacao

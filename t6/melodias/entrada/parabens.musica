@@ -1,0 +1,41 @@
+// Parabéns pra você — versão completa com as duas frases
+// Tonalidade: Dó maior
+
+musica "Parabens pra Voce"
+  bpm 100
+  instrumento piano
+
+  // Frase 1: "Parabéns pra você"
+  nota SOL4 colcheia
+  nota SOL4 semi
+  nota LA4  quarto
+  nota SOL4 quarto
+  nota DO5  quarto
+  nota SI4  meio
+
+  // Frase 2: "nesta data querida"
+  nota SOL4 colcheia
+  nota SOL4 semi
+  nota LA4  quarto
+  nota SOL4 quarto
+  nota RE5  quarto
+  nota DO5  meio
+
+  // Frase 3: "muitos anos de vida"
+  nota SOL4 colcheia
+  nota SOL4 semi
+  nota SOL5 quarto
+  nota MI5  quarto
+  nota DO5  quarto
+  nota SI4  quarto
+  nota LA4  meio
+
+  // Frase 4: "e muita felicidade"
+  nota FA5  colcheia
+  nota FA5  semi
+  nota MI5  quarto
+  nota DO5  quarto
+  nota RE5  quarto
+  nota DO5  inteiro
+
+fim_musica

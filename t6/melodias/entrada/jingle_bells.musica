@@ -1,0 +1,73 @@
+// Jingle Bells — melodia completa
+// Tonalidade: Dó maior
+
+musica "Jingle Bells"
+  bpm 160
+  instrumento piano
+
+  // Refrão: "Jingle bells, jingle bells..."
+  sequencia "refrao"
+    nota MI4 quarto
+    nota MI4 quarto
+    nota MI4 meio
+
+    nota MI4 quarto
+    nota MI4 quarto
+    nota MI4 meio
+
+    nota MI4 quarto
+    nota SOL4 quarto
+    nota DO4 quarto
+    nota RE4 quarto
+    nota MI4 inteiro
+
+    nota FA4 quarto
+    nota FA4 quarto
+    nota FA4 quarto
+    nota FA4 quarto
+    nota FA4 quarto
+    nota MI4 quarto
+    nota MI4 quarto
+    nota MI4 semi
+    nota MI4 semi
+
+    nota MI4 quarto
+    nota RE4 quarto
+    nota RE4 quarto
+    nota MI4 quarto
+    nota RE4 meio
+    nota SOL4 meio
+  fim_sequencia
+
+  // Verso: "Dashing through the snow..."
+  nota DO4 quarto
+  nota DO4 quarto
+  nota RE4 quarto
+  nota DO4 quarto
+  nota SOL3 meio
+  pausa meio
+
+  nota DO4 quarto
+  nota DO4 quarto
+  nota RE4 quarto
+  nota DO4 quarto
+  nota LA3 meio
+  pausa meio
+
+  nota DO4 quarto
+  nota DO4 quarto
+  nota DO5 quarto
+  nota LA4 quarto
+  nota FA4 quarto
+  nota RE4 quarto
+  nota SOL4 inteiro
+
+  nota SI3 quarto
+  nota SI3 quarto
+  nota LA3 quarto
+  nota SOL3 quarto
+  nota FA3 quarto
+  nota RE4 quarto
+  nota DO4 inteiro
+
+fim_musica

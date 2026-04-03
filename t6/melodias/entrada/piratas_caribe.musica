@@ -1,0 +1,86 @@
+// He's a Pirate — Klaus Badelt / Hans Zimmer (Piratas do Caribe)
+// Tema principal adaptado para a linguagem MusicaLA
+
+musica "Piratas do Caribe"
+  bpm 160
+  instrumento orquestra
+
+  // Intro — arpejo
+  nota LA3 colcheia
+  nota DO4 colcheia
+  nota MI4 colcheia
+  nota LA4 colcheia
+
+  // Tema principal
+  nota LA4 colcheia
+  nota SOL4 colcheia
+  nota LA4 colcheia
+  nota MI4 quarto
+  nota MI4 colcheia
+
+  nota FA4 colcheia
+  nota MI4 colcheia
+  nota FA4 colcheia
+  nota DO4 quarto
+  nota DO4 colcheia
+
+  nota RE4 colcheia
+  nota DO4 colcheia
+  nota RE4 colcheia
+  nota LA3 quarto
+  nota SI3 colcheia
+
+  nota DO4 quarto
+  nota DO4 colcheia
+  nota RE4 colcheia
+  nota MI4 colcheia
+  nota FA4 colcheia
+  nota MI4 quarto
+
+  // Segunda frase
+  nota LA4 colcheia
+  nota SOL4 colcheia
+  nota LA4 colcheia
+  nota MI4 quarto
+  nota MI4 colcheia
+
+  nota FA4 colcheia
+  nota MI4 colcheia
+  nota FA4 colcheia
+  nota DO4 quarto
+  nota DO4 colcheia
+
+  nota RE4 colcheia
+  nota DO4 colcheia
+  nota RE4 colcheia
+  nota LA3 quarto
+  nota SI3 colcheia
+
+  nota DO4 quarto
+  nota MI4 quarto
+  nota LA4 meio
+
+  // Ponte
+  nota SOL4 colcheia
+  nota LA4 colcheia
+  nota SI4 colcheia
+  nota DO5 quarto
+  nota DO5 colcheia
+
+  nota SI4 colcheia
+  nota DO5 colcheia
+  nota RE5 colcheia
+  nota MI5 quarto
+  nota MI5 colcheia
+
+  nota RE5 colcheia
+  nota MI5 colcheia
+  nota FA5 colcheia
+  nota MI5 quarto
+  nota RE5 colcheia
+
+  nota DO5 quarto
+  nota SI4 quarto
+  nota LA4 meio
+
+fim_musica

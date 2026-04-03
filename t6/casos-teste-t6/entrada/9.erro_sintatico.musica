@@ -1,0 +1,10 @@
+// Caso de teste 9: erro sintático — fim_musica ausente
+
+musica "Erro Sintatico"
+  bpm 120
+  nota DO4 quarto
+  nota RE4 quarto
+
+musica "Segunda Musica"
+  nota MI4 quarto
+fim_musica

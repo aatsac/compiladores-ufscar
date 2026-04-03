@@ -1,0 +1,7 @@
+// Caso de teste 8: erro léxico — símbolo @ não pertence à linguagem
+
+musica "Erro Lexico"
+  bpm 120
+  @instrumento piano
+  nota DO4 quarto
+fim_musica

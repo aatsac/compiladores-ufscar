@@ -1,0 +1,7 @@
+// Caso de teste 7: erro semântico — repeticoes com valor 0
+
+musica "Zero Repeticoes"
+  bpm 120
+  repeticoes 0
+  nota DO4 quarto
+fim_musica

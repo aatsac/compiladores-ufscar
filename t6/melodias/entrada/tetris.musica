@@ -1,0 +1,83 @@
+// Tetris — Tema A (Korobeiniki, música folclórica russa)
+// Uma das melodias mais reconhecíveis dos videogames
+
+musica "Tetris"
+  bpm 160
+  instrumento piano
+
+  // Frase A
+  nota MI5 quarto
+  nota SI4 colcheia
+  nota DO5 colcheia
+  nota RE5 quarto
+  nota DO5 colcheia
+  nota SI4 colcheia
+
+  nota LA4 quarto
+  nota LA4 colcheia
+  nota DO5 colcheia
+  nota MI5 quarto
+  nota RE5 colcheia
+  nota DO5 colcheia
+
+  nota SI4 quarto
+  nota SI4 colcheia
+  nota DO5 colcheia
+  nota RE5 quarto
+  nota MI5 quarto
+
+  nota DO5 quarto
+  nota LA4 quarto
+  nota LA4 meio
+
+  // Frase B
+  pausa colcheia
+  nota RE5 quarto
+  nota FA5 colcheia
+  nota LA5 quarto
+  nota SOL5 colcheia
+  nota FA5 colcheia
+
+  nota MI5 quarto
+  nota MI5 colcheia
+  nota DO5 colcheia
+  nota MI5 quarto
+  nota RE5 colcheia
+  nota DO5 colcheia
+
+  nota SI4 quarto
+  nota SI4 colcheia
+  nota DO5 colcheia
+  nota RE5 quarto
+  nota MI5 quarto
+
+  nota DO5 quarto
+  nota LA4 quarto
+  nota LA4 meio
+
+  // Repete frase A
+  nota MI5 quarto
+  nota SI4 colcheia
+  nota DO5 colcheia
+  nota RE5 quarto
+  nota DO5 colcheia
+  nota SI4 colcheia
+
+  nota LA4 quarto
+  nota LA4 colcheia
+  nota DO5 colcheia
+  nota MI5 quarto
+  nota RE5 colcheia
+  nota DO5 colcheia
+
+  nota SI4 quarto
+  nota SI4 colcheia
+  nota DO5 colcheia
+  nota RE5 quarto
+  nota MI5 quarto
+
+  nota DO5 quarto
+  nota LA4 quarto
+  nota LA4 inteiro
+
+fim_musica

@@ -1,0 +1,57 @@
+// Für Elise — Ludwig van Beethoven
+// Trecho principal (tema A) com repetição
+// A melodia real usa Mi3, mas usamos Mi4 para melhor audição no beep
+
+musica "Fur Elise"
+  bpm 140
+  instrumento piano
+
+  // Tema principal — primeira vez
+  nota MI4  colcheia
+  nota RE#4 colcheia
+  nota MI4  colcheia
+  nota RE#4 colcheia
+  nota MI4  colcheia
+  nota SI3  colcheia
+  nota RE4  colcheia
+  nota DO4  colcheia
+  nota LA3  quarto
+  pausa colcheia
+
+  nota DO3  colcheia
+  nota MI3  colcheia
+  nota LA3  colcheia
+  nota SI3  quarto
+  pausa colcheia
+
+  nota MI3  colcheia
+  nota SOL#3 colcheia
+  nota SI3  colcheia
+  nota DO4  quarto
+  pausa colcheia
+
+  nota MI3  colcheia
+  nota MI4  colcheia
+  nota RE#4 colcheia
+  nota MI4  colcheia
+  nota RE#4 colcheia
+  nota MI4  colcheia
+  nota SI3  colcheia
+  nota RE4  colcheia
+  nota DO4  colcheia
+  nota LA3  quarto
+  pausa colcheia
+
+  // Tema principal — segunda vez
+  nota DO3  colcheia
+  nota MI3  colcheia
+  nota LA3  colcheia
+  nota SI3  quarto
+  pausa colcheia
+
+  nota MI3  colcheia
+  nota DO4  colcheia
+  nota SI3  colcheia
+  nota LA3  meio
+
+fim_musica

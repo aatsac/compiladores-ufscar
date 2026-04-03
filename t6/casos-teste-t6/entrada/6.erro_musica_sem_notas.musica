@@ -1,0 +1,6 @@
+// Caso de teste 6: erro semântico — bloco de música sem nenhum comando
+
+musica "Musica Vazia"
+  bpm 120
+  instrumento piano
+fim_musica

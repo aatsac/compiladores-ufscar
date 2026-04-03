@@ -1,0 +1,21 @@
+// Caso de teste 3: programa válido — usa acidentes (# e b), várias oitavas e durações
+
+musica "Escalas Cromaticas"
+  bpm 140
+
+  nota DO4  colcheia
+  nota DO#4 colcheia
+  nota RE4  colcheia
+  nota REb4 colcheia
+  nota MI4  colcheia
+  nota FA4  colcheia
+  nota FA#4 colcheia
+  nota SOL4 colcheia
+  nota SOL#4 colcheia
+  nota LA4  colcheia
+  nota SIb4 colcheia
+  nota SI4  colcheia
+  nota DO5  semi
+  pausa semi
+
+fim_musica

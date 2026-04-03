@@ -1,0 +1,77 @@
+// Super Mario Bros — Tema Principal
+// Compositor: Koji Kondo (1985)
+// Uma das melodias mais icônicas dos videogames
+
+musica "Super Mario Bros"
+  bpm 200
+  instrumento piano
+
+  // Intro
+  nota MI5 colcheia
+  nota MI5 colcheia
+  pausa colcheia
+  nota MI5 colcheia
+  pausa colcheia
+  nota DO5 colcheia
+  nota MI5 colcheia
+  pausa colcheia
+  nota SOL5 quarto
+  pausa quarto
+  nota SOL4 quarto
+  pausa quarto
+
+  // Tema A
+  nota DO5 quarto
+  pausa colcheia
+  nota SOL4 quarto
+  pausa colcheia
+  nota MI4 quarto
+  pausa colcheia
+  nota LA4 colcheia
+  pausa colcheia
+  nota SI4 colcheia
+  pausa colcheia
+  nota LA#4 colcheia
+  nota LA4 colcheia
+
+  nota SOL4 colcheia
+  nota MI5 colcheia
+  nota SOL5 colcheia
+  nota LA5 colcheia
+  nota FA5 colcheia
+  nota SOL5 colcheia
+  pausa colcheia
+  nota MI5 colcheia
+  nota DO5 colcheia
+  nota RE5 colcheia
+  nota SI4 quarto
+  pausa quarto
+
+  // Tema B (repetição da intro)
+  nota DO5 quarto
+  pausa colcheia
+  nota SOL4 quarto
+  pausa colcheia
+  nota MI4 quarto
+  pausa colcheia
+  nota LA4 colcheia
+  pausa colcheia
+  nota SI4 colcheia
+  pausa colcheia
+  nota LA#4 colcheia
+  nota LA4 colcheia
+
+  nota SOL4 colcheia
+  nota MI5 colcheia
+  nota SOL5 colcheia
+  nota LA5 colcheia
+  nota FA5 colcheia
+  nota SOL5 colcheia
+  pausa colcheia
+  nota MI5 colcheia
+  nota DO5 colcheia
+  nota RE5 colcheia
+  nota SI4 quarto
+  pausa quarto
+
+fim_musica

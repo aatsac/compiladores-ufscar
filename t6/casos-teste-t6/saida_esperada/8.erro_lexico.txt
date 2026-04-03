@@ -1,0 +1,2 @@
+Linha 5: simbolo @ nao reconhecido
+Fim da compilacao

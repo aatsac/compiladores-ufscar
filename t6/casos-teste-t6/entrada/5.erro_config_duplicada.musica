@@ -1,0 +1,9 @@
+// Caso de teste 5: erro semântico — bpm e instrumento declarados duas vezes
+
+musica "Config Duplicada"
+  bpm 120
+  bpm 140
+  instrumento piano
+  instrumento violino
+  nota DO4 quarto
+fim_musica

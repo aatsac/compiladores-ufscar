@@ -1,0 +1,23 @@
+// Caso de teste 10: múltiplos blocos de música em sequência
+
+musica "Intro"
+  bpm 90
+  instrumento piano
+  nota DO4 inteiro
+fim_musica
+
+musica "Verso"
+  bpm 110
+  instrumento violao
+  repeticoes 3
+  nota MI4 quarto
+  nota SOL4 quarto
+  nota DO5 meio
+fim_musica
+
+musica "Final"
+  bpm 80
+  nota DO3 inteiro
+  pausa meio
+  nota DO4 inteiro
+fim_musica

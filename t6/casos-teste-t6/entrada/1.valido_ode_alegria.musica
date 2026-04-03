@@ -1,0 +1,22 @@
+// Caso de teste 1: programa válido — Ode à Alegria (trecho)
+// Testa: notas básicas, BPM, instrumento, durações variadas
+
+musica "Ode a Alegria"
+  bpm 120
+  instrumento piano
+
+  nota MI4 quarto
+  nota MI4 quarto
+  nota FA4 quarto
+  nota SOL4 quarto
+  nota SOL4 quarto
+  nota FA4 quarto
+  nota MI4 quarto
+  nota RE4 quarto
+  nota DO4 quarto
+  nota DO4 quarto
+  nota RE4 quarto
+  nota MI4 quarto
+  nota MI4 meio
+  pausa quarto
+fim_musica
