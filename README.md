@@ -169,3 +169,4 @@ Código-fonte
 - **Maven 3.6+** — build e gerenciamento de dependências
 - **GCC** — compilação do código C gerado
 - **sox** — síntese e reprodução de áudio no T6
+
